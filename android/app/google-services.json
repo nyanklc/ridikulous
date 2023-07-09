@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "889266099623",
+    "project_id": "ridikulous-757fa",
+    "storage_bucket": "ridikulous-757fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889266099623:android:b55b32a72b0680c08ed282",
+        "android_client_info": {
+          "package_name": "com.example.ridikulous"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889266099623-g3n0m1roin6jrc5onutu4fb467bo0ni6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP_khLP2NPHRN-BqtUDvM74mlDfh9F10E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889266099623-g3n0m1roin6jrc5onutu4fb467bo0ni6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "889266099623-vkv4ojdsg703musmq9hd2iobu229hnoa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ridikulous"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
