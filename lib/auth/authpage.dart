@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../home/homepage.dart';
 import 'authhelpers.dart';
 
 class AuthPage extends StatefulWidget {
@@ -21,8 +22,16 @@ class _AuthPageState extends State<AuthPage> {
     super.dispose();
   }
 
-  void attemptSignIn(ema, passwd) async {
-    await signInUserWithEmailPassword(ema, passwd);
+  void attemptSignIn(ema, passwd, context) async {
+    bool success = await signInUserWithEmailPassword(ema, passwd);
+
+    if (!success)
+    {
+      print("failed sign in");
+      return;
+    }
+
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
   }
 
   @override
@@ -64,13 +73,13 @@ class _AuthPageState extends State<AuthPage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  attemptSignIn(emailController.text, passwordController.text);
+                  attemptSignIn(emailController.text, passwordController.text, context);
                 },
                 child: const Text(
                   "submit",
                   style: TextStyle(
                     fontSize: 18.0,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),

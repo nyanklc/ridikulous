@@ -3,6 +3,7 @@ import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 
 import 'auth/authpage.dart';
+import 'home/homepage.dart';
 
 Future<void> initFirebase() async {
   await Firebase.initializeApp(
@@ -24,6 +25,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // TODO:
+    // if (authenticated)
     return MaterialApp(
       title: 'Ridikulous',
       theme: ThemeData(
@@ -33,5 +36,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const AuthPage(),
     );
+    // else
+    // return HomePage();
   }
 }
