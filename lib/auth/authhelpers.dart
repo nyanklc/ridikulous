@@ -36,3 +36,19 @@ Future<bool> signInUserWithEmailPassword(ema, passwd) async {
   }
   return false;
 }
+
+User? getUser() {
+  return FirebaseAuth.instance.currentUser;
+}
+
+bool isUserAuthenticated() {
+  bool ret = false;
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    if (user == null) {
+      ret = false;
+    } else {
+      ret = true;
+    }
+  });
+  return ret;
+}

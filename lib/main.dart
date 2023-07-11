@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 
+import 'auth/authhelpers.dart';
 import 'auth/authpage.dart';
 import 'home/homepage.dart';
 
@@ -27,14 +28,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO:
     // if (authenticated)
+
+    bool userAuthenticated = isUserAuthenticated();
+    var user = getUser();
+    var initialPage = (user != null) ? '/home' : '/auth';
+
+    print("userAuthenticated: " + userAuthenticated.toString());
+    print("user: " + user.toString());
+    print("initialPage: " + initialPage);
+
     return MaterialApp(
       title: 'Ridikulous',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const AuthPage(),
+      routes: {
+        '/home' : (context) => const HomePage(),
+        '/auth' : (context) => const AuthPage(),
+      },
+      initialRoute: initialPage,
     );
     // else
     // return HomePage();

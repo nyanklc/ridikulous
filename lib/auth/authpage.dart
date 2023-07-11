@@ -25,13 +25,13 @@ class _AuthPageState extends State<AuthPage> {
   void attemptSignIn(ema, passwd, context) async {
     bool success = await signInUserWithEmailPassword(ema, passwd);
 
-    if (!success)
-    {
+    if (!success) {
       print("failed sign in");
       return;
     }
 
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
   }
 
   @override
@@ -67,13 +67,16 @@ class _AuthPageState extends State<AuthPage> {
                   hintText: 'password',
                 ),
                 controller: passwordController,
+                obscureText: true,
+                obscuringCharacter: '*',
               ),
               const SizedBox(
                 height: 40,
               ),
               ElevatedButton(
                 onPressed: () {
-                  attemptSignIn(emailController.text, passwordController.text, context);
+                  attemptSignIn(
+                      emailController.text, passwordController.text, context);
                 },
                 child: const Text(
                   "submit",
