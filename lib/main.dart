@@ -26,9 +26,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // TODO:
-    // if (authenticated)
-
     bool userAuthenticated = isUserAuthenticated();
     var user = getUser();
     var initialPage = (user != null) ? '/home' : '/auth';
@@ -50,7 +47,5 @@ class MyApp extends StatelessWidget {
       },
       initialRoute: initialPage,
     );
-    // else
-    // return HomePage();
   }
 }

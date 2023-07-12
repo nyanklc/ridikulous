@@ -12,6 +12,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int subPageIndex = 0;
 
+  final pageViewController = PageController();
+
   static const List<Widget> subPageList = <Widget>[
     SubHome(),
     SubExplore(),
@@ -21,8 +23,15 @@ class _HomePageState extends State<HomePage> {
 
   void setPageIndex(int index) {
     setState(() {
-      subPageIndex = index;
+      pageViewController.animateToPage(index,
+          duration: const Duration(milliseconds: 100), curve: Curves.bounceInOut);
     });
+  }
+
+  @override
+  void dispose() {
+    pageViewController.dispose();
+    super.dispose();
   }
 
   @override
@@ -37,7 +46,15 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Ridikulous"),
         foregroundColor: Colors.white,
       ),
-      body: subPageList[subPageIndex],
+      body: PageView(
+        controller: pageViewController,
+        children: subPageList,
+        onPageChanged: (index) {
+          setState(() {
+            subPageIndex = index;
+          });
+        },
+      ),
       bottomNavigationBar: Theme(
         data: ThemeData(
           splashColor: Colors.transparent,
