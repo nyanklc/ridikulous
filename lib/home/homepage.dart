@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'post.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -98,12 +100,34 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class SubHome extends StatelessWidget {
+class SubHome extends StatefulWidget {
   const SubHome({super.key});
 
   @override
+  State<SubHome> createState() => _SubHomeState();
+}
+
+class _SubHomeState extends State<SubHome> {
+  List<Post> mPostList = const <Post>[
+    Post(
+      ownerId: 1,
+      ownerName: "noyan1",
+    ),
+    Post(
+      ownerId: 2,
+      ownerName: "noyan2",
+    ),
+    Post(
+      ownerId: 3,
+      ownerName: "noyan3",
+    ),
+    ];
+
+  @override
   Widget build(BuildContext context) {
-    return const Text("HOME");
+    return ListView(
+      children: mPostList,
+    );
   }
 }
 
