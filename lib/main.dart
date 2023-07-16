@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
     var user = getUser();
     var initialPage = (user != null) ? '/home' : '/auth';
 
-    print("userAuthenticated: " + userAuthenticated.toString());
-    print("user: " + user.toString());
-    print("initialPage: " + initialPage);
+    print("userAuthenticated: $userAuthenticated");
+    print("user: $user");
+    print("initialPage: $initialPage");
 
     return MaterialApp(
       title: 'Ridikulous',
